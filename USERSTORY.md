@@ -27,7 +27,6 @@
    
 ## user model
     - has_many :meals
-    - has_many :favorites
     - has_one :profile
 
 ## profile model
@@ -36,25 +35,29 @@
 ## meal model
     - belongs_to :user
 
-## favorites model - (filter in serializer? or model)
-    - belongs_to :user
-
-   
-
-:user ---< :meal >--- :favorite
+:user ---< :meal
+  |
+  |
+  |
+  A
+:profile
 
 ## user attributes:
     :username
-    :password
-    :
+    :password_digest
+
+## profile attributes:
+    :name
+    :age
+    :current_weight
+    :target_weight
 
 ## meal attributes:
-    :
-    :
-
-## favorite attributes:
-    :
-    :
+    :title
+    :readyInMinutes
+    :servings
+    :sourceUrl
+    :favorite
 
 <!-- prettier-ignore-end -->
 
