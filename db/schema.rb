@@ -20,7 +20,7 @@ ActiveRecord::Schema.define(version: 2021_09_05_210502) do
     t.integer "readyInMinutes"
     t.integer "servings"
     t.string "sourceUrl"
-    t.bigint "profile_id", null: false
+    t.bigint "user_id", null: false
     t.boolean "favorite"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false

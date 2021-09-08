@@ -5,7 +5,7 @@ class CreateMeals < ActiveRecord::Migration[6.1]
       t.integer :readyInMinutes
       t.integer :servings
       t.string :sourceUrl
-      t.bigint :profile_id, null: false
+      t.bigint :user_id, null: false
       t.boolean :favorite
 
       t.timestamps
