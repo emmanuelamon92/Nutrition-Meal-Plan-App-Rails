@@ -1,7 +1,11 @@
 Rails.application.routes.draw do
-  resources :meals
-  resources :profiles
-  resources :users, only: [:create, :show, :index]
+  # resources :meals
+  # resources :profiles
+  resources :users, only: [:create, :show, :index] do 
+    recources :profile, only: [:create, :show, :index]
+    resources :meals
+  end
+
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 
   root "meals#index"
@@ -20,7 +24,7 @@ Rails.application.routes.draw do
   # post "meals", to: "meals#create"
   # put "meals/:id", to: "meals#update"
   # delete "meals/:id", to: "meals#destroy"
-  
+
   # --- Custom Routes ---
   get "/me", to: "users#show"
 
@@ -28,4 +32,5 @@ Rails.application.routes.draw do
   post "/login", to: "sessions#create"
   get "/logged_in", to: "sessions#is_logged_in?"
   delete "/logout", to: "sessions#destroy"
+  # post "/logout", to: "sessions#destroy"
 end

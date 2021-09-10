@@ -3,13 +3,15 @@ class SessionsController < ApplicationController
 
     #POST /login
     def create
-        user = User.find_by(username: params[:username]) || User.find_by(username: params[:param][:username])
-        if user && user.authenticate(params[:password]) || user && user.authenticate(params[:param][:password])
+        # user = User.find_by(username: params[:username]) || User.find_by(username: params[:param][:username])
+        @user = User.find_by(username: sessions_params[:username])
+        # if user && user.authenticate(params[:password]) || user && user.authenticate(params[:param][:password])
+        if @user && @user.authenticate(sessions_params[:password])
             login!
             # session[:user_id] = user.id
             render json: { loggin_in: true, user: @user }
         else
-            render json: { status: 401, errors: ['Wrong Username or Password'] }
+            render json: { status: 401, errors: ['No Such User', 'Wrong Username or Password'] }
         end
     end
 
@@ -29,7 +31,9 @@ class SessionsController < ApplicationController
         end
     end
 
-    def session_params
-        params.require(:user).permit(:username, :password)
-      end
+    private 
+
+        def session_params
+            params.require(:user).permit(:username, :password)
+        end
 end

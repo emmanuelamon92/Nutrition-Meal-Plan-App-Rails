@@ -13,14 +13,9 @@ class UsersController < ApplicationController
     # render json: @user
     @user = User.find(params[:id])
     if @user
-       render json: {
-       user: @user
-    }
+       render json: { user: @user }
     else
-       render json: {
-       status: 500,
-       errors: ['user not found']
-     }
+       render json: { status: 500, errors: ['user not found'] }
     end
   end
 
