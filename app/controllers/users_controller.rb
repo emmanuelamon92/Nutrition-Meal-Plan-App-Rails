@@ -10,7 +10,18 @@ class UsersController < ApplicationController
 
   # GET /users/1
   def show
-    render json: @user
+    # render json: @user
+    @user = User.find(params[:id])
+    if @user
+       render json: {
+       user: @user
+    }
+    else
+       render json: {
+       status: 500,
+       errors: ['user not found']
+     }
+    end
   end
 
   # POST /users
