@@ -20,10 +20,12 @@ Rails.application.routes.draw do
   # post "meals", to: "meals#create"
   # put "meals/:id", to: "meals#update"
   # delete "meals/:id", to: "meals#destroy"
+  
+  # --- Custom Routes ---
+  get "/me", to: "users#show"
 
   # --- Sessions Routes ---
-  get "/me", to: "users#show"
   post "/login", to: "sessions#create"
-  # get "/login", to: "sessions#create"
+  get "/logged_in", to: "sessions#is_logged_in?"
   delete "/logout", to: "sessions#destroy"
 end
