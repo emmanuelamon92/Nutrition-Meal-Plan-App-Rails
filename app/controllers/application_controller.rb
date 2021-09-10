@@ -1,8 +1,9 @@
 class ApplicationController < ActionController::API
-    include ActionController::Cookies
-    rescue_from ActiveRecord::RecordInvalid, with: :invalid_record
-    rescue_from ActiveRecord::RecordInvalid, with: :render_unprocessable_entity_response
-    before_action :authorize
+    # include ActionController::Cookies
+    # rescue_from ActiveRecord::RecordInvalid, with: :invalid_record
+    # rescue_from ActiveRecord::RecordInvalid, with: :render_unprocessable_entity_response
+    # before_action :authorize
+    helper_method
 
     private
 
