@@ -1,33 +1,37 @@
 # class ApplicationController < ActionController::API
 class ApplicationController < ActionController::Base
-    # include ActionController::Cookies
+    include ActionController::Cookies
     # rescue_from ActiveRecord::RecordInvalid, with: :invalid_record
     # rescue_from ActiveRecord::RecordInvalid, with: :render_unprocessable_entity_response
-    # before_action :authorize
+    before_action :authorize
     skip_before_action :verify_authenticity_token
     helper_method :login!, :logged_in?, :current_user, :authorized_user?, :logout!
 
-  def login!
+    def login!
       session[:user_id] = @user.id
     end
-  def logged_in?
+
+    def logged_in?
       !!session[:user_id]
     end
-  def current_user
+    
+    def current_user
       @current_user ||= User.find(session[:user_id]) if session[:user_id]
     end
-  def authorized_user?
+  
+    def authorized_user?
        @user == current_user
-     end
-  def logout!
-       session.clear
-     end
+    end
+  
+    def logout!
+       session.destroy
+    end
 
     private
 
     def invalid_record(e)
         render json: {errors: e.record.errors.full_messages}, status: 400
-      end 
+    end 
     
     def authorize
         if !session[:user_id]

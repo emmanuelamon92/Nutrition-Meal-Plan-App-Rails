@@ -1,10 +1,9 @@
 Rails.application.routes.draw do
   # resources :meals
   # resources :profiles
-  resources :users, only: [:create, :show, :index] do 
-    recources :profile, only: [:create, :show, :index]
-    resources :meals
-  end
+  resources :users, only: [:create, :show, :index] 
+  resources :profile, only: [:create, :show, :index]
+  resources :meals
 
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 

@@ -18,6 +18,7 @@ class ProfilesController < ApplicationController
     @profile = Profile.new(profile_params)
 
     if @profile.save
+      # login!
       render json: @profile, status: :created, location: @profile
     else
       render json: @profile.errors, status: :unprocessable_entity

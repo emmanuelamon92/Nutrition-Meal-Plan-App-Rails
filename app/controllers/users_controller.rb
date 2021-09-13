@@ -1,5 +1,6 @@
 class UsersController < ApplicationController
   before_action :set_user, only: [:show, :update, :destroy]
+  wrap_parameters :user, include: [:username, :password, :password_confirmation]
 
   # GET /users
   def index
@@ -24,6 +25,7 @@ class UsersController < ApplicationController
     @user = User.new(user_params)
 
     if @user.save
+      # byebug
       login!
       # render json: @user, status: :created, location: @user
       render json: {status: :created, user: @user}
