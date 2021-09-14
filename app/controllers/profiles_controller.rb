@@ -8,9 +8,9 @@ class ProfilesController < ApplicationController
     render json: @profiles
   end
 
-  # GET /profiles/1
+  # GET /users/1/profile
   def show
-    render json: @profile
+    render json: set_user.profile
   end
 
   # POST /profiles

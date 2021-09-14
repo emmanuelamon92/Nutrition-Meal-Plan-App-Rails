@@ -4,7 +4,6 @@ class SessionsController < ApplicationController
 
     #POST /login
     def create
-        # byebug
         # user = User.find_by(username: params[:username]) || User.find_by(username: params[:param][:username])
         @user = User.find_by(username: session_params[:username])
         # if user && user.authenticate(params[:password]) || user && user.authenticate(params[:param][:password])
@@ -13,7 +12,7 @@ class SessionsController < ApplicationController
             # session[:user_id] = user.id
             render json: { logged_in: true, user: @user }
         else
-            render json: { status: 401, errors: ['No Such User', 'Wrong Username or Password'] }
+            render json: { status: 401, errors: ['Wrong Username or Password'] }
         end
     end
 

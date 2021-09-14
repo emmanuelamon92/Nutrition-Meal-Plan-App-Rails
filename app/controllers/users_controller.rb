@@ -11,7 +11,6 @@ class UsersController < ApplicationController
 
   # GET /users/1
   def show
-    # render json: @user
     @user = User.find(params[:id])
     if @user
        render json: { user: @user }
@@ -32,7 +31,7 @@ class UsersController < ApplicationController
 
     else
       # render json: @user.errors, status: :unprocessable_entity
-      render json: {status: 500, errors: @user.errors.full_messages}
+      render json: {status: 500, errors: ['User Not Created']}
 
     end
   end

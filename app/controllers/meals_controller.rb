@@ -1,5 +1,5 @@
 class MealsController < ApplicationController
-  before_action :set_meal, only: [:show, :update, :destroy]
+  before_action :set_user, only: [:show, :update, :destroy]
 
   # GET /meals
   def index
@@ -8,9 +8,10 @@ class MealsController < ApplicationController
     render json: @meals
   end
 
-  # GET /meals/1
+  # GET /mymeals
   def show
-    render json: @meal
+    # byebug
+    render json: set_user.meals
   end
 
   # POST /meals

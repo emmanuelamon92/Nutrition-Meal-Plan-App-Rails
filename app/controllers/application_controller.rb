@@ -32,6 +32,10 @@ class ApplicationController < ActionController::Base
     def invalid_record(e)
         render json: {errors: e.record.errors.full_messages}, status: 400
     end 
+
+    def set_user
+      @user = User.find(params[:id])
+    end
     
     def authorize
         if !session[:user_id]

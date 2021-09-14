@@ -9,6 +9,7 @@ Rails.application.routes.draw do
 
   root "meals#index"
   # --- User Routes ---
+  get "users/:id", to: "users#show"
   # get "users", to: "users#index"
   # post "users", to: "users#create"
   # put "users/:id", to: "users#update"
@@ -25,7 +26,14 @@ Rails.application.routes.draw do
   # delete "meals/:id", to: "meals#destroy"
 
   # --- Custom Routes ---
-  get "/me", to: "users#show"
+  get "/users/:id", to: "users#show"
+  # get "/me", to: "users#show"
+
+  get "/users/:id/meals", to: "meals#show"
+  # get "/mymeals", to: "meals#show"
+
+  get "/users/:id/profile", to: "profiles#show"
+  # get "/myprofile", to: "profiles#show"
 
   # --- Sessions Routes ---
   post "/login", to: "sessions#create"
