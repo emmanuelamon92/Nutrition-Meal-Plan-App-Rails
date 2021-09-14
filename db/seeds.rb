@@ -10,7 +10,7 @@ user = User.create([
     {username: "Manny", password:"fir,sts"}
 ])
 
-user_ids = User.all.map{|user|
+User.all.map{|user|
 
     Profile.create([
         {name: Faker::Name.name, age: rand(17..150), current_weight: rand(100..250), target_weight: rand(100..250), user_id: user.id}

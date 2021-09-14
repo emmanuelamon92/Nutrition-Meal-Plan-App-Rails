@@ -3,9 +3,9 @@ class ProfilesController < ApplicationController
 
   # GET /profiles
   def index
-    @profiles = Profile.all
+    @profile = Profile.all
 
-    render json: @profiles
+    render json: @profile
   end
 
   # GET /users/1/profile
