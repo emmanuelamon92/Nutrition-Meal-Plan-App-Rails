@@ -5,7 +5,7 @@ class CreateProfiles < ActiveRecord::Migration[6.1]
       t.integer :age
       t.integer :current_weight
       t.integer :target_weight
-      t.string :calories
+      t.integer :calories
       t.string :allergies
       t.string :diet
       t.bigint :user_id, null: false
