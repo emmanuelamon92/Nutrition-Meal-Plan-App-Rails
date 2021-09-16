@@ -26,13 +26,13 @@ Rails.application.routes.draw do
   # delete "meals/:id", to: "meals#destroy"
 
   # --- Custom Routes ---
-  get "/users/:id", to: "users#show"
+  get "/user/:id", to: "users#show"
   # get "/me", to: "users#show"
 
-  get "/users/:id/meals", to: "meals#show"
+  get "/user/:id/meals", to: "meals#show"
   # get "/mymeals", to: "meals#show"
 
-  get "/users/:id/profile", to: "profiles#show"
+  get "/user/:id/profile", to: "profiles#show"
   # get "/myprofile", to: "profiles#show"
 
   # --- Sessions Routes ---
