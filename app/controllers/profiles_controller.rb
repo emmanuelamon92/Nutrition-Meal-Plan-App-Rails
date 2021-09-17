@@ -25,9 +25,9 @@ class ProfilesController < ApplicationController
 
     if @profile.save
       # login!
-      render json: @profile, status: :created, location: @profile
+      render json: { profile_created: true, profile: @profile }
     else
-      render json: @profile.errors, status: :unprocessable_entity
+      render json: { status: 401, errors: ['Profile not created']} @profile.errors, status: :unprocessable_entity
     end
   end
 
@@ -53,6 +53,6 @@ class ProfilesController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def profile_params
-      params.require(:profile).permit(:name, :age, :current_weight, :target_weight, :calories, :allergies, :diet)
+      params.require(:profile).permit(:name, :age, :current_weight, :target_weight, :calories, :allergies, :diet, :user_id)
     end
 end

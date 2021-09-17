@@ -17,12 +17,12 @@ class MealsController < ApplicationController
   # POST /meals
   def create
     @meal = Meal.new(meal_params)
-
+    byebug
     if @meal.save
       # login!
-      render json: @meal, status: :created, location: @meal
+      render json: { meal_created: true, meal: @meal }
     else
-      render json: @meal.errors, status: :unprocessable_entity
+      render json: { status: 401, errors: ['Meal not created']}
     end
   end
 
@@ -48,6 +48,6 @@ class MealsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def meal_params
-      params.require(:meal).permit(:title, :readyInMinutes, :servings, :sourceUrl, :favorite)
+      params.require(:meal).permit(:title, :readyInMinutes, :servings, :sourceUrl, :favorite, :user_id)
     end
 end
