@@ -9,14 +9,14 @@ user = User.create([
 User.all.map{|user|
 
     Profile.create([
-        {name: Faker::Name.name, age: rand(17..150), current_weight: rand(100..250), target_weight: rand(100..250)calories: rand(1500..2600), allergies: Gluten, diet: Vegan, user_id: user.id}
+        {name: Faker::Name.name, age: rand(17..150), current_weight: rand(100..250), target_weight: rand(100..250), calories: rand(1500..2600), allergies: 'Gluten', diet: 'Vegan', user_id: user.id}
     ])
 
-    Meal.create([
-        {title: Faker::Food.dish, readyInMinutes: rand(15..60), servings: rand(1..10), sourceUrl: 'test.com', favorite: false, user_id: user.id },
-        {title: Faker::Food.dish, readyInMinutes: rand(15..60), servings: rand(1..10), sourceUrl: 'test.com', favorite: false, user_id: user.id },
-        {title: Faker::Food.dish, readyInMinutes: rand(15..60), servings: rand(1..10), sourceUrl: 'test.com', favorite: false, user_id: user.id }
-    ])
+    # Meal.create([
+    #     {title: Faker::Food.dish, readyInMinutes: rand(15..60), servings: rand(1..10), sourceUrl: 'test.com', favorite: false, user_id: user.id },
+    #     {title: Faker::Food.dish, readyInMinutes: rand(15..60), servings: rand(1..10), sourceUrl: 'test.com', favorite: false, user_id: user.id },
+    #     {title: Faker::Food.dish, readyInMinutes: rand(15..60), servings: rand(1..10), sourceUrl: 'test.com', favorite: false, user_id: user.id }
+    # ])
 
 }
 

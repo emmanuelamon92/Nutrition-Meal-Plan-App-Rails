@@ -10,7 +10,13 @@ class ProfilesController < ApplicationController
 
   # GET /users/1/profile
   def show
-    render json: set_user.profile
+    # render json: set_user.profile
+    @profile = Profile.find(params[:id])
+    if @profile
+       render json: { profile: @profile }
+    else
+       render json: { status: 500, errors: ['profile not found'] }
+    end
   end
 
   # POST /profiles
@@ -47,6 +53,6 @@ class ProfilesController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def profile_params
-      params.require(:profile).permit(:name, :age, :current_weight, :target_weight)
+      params.require(:profile).permit(:name, :age, :current_weight, :target_weight, :calories, :allergies, :diet)
     end
 end

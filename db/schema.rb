@@ -31,6 +31,9 @@ ActiveRecord::Schema.define(version: 2021_09_05_210502) do
     t.integer "age"
     t.integer "current_weight"
     t.integer "target_weight"
+    t.integer "calories"
+    t.string "allergies"
+    t.string "diet"
     t.bigint "user_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
