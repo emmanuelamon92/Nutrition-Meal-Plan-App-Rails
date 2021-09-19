@@ -17,7 +17,7 @@ class MealsController < ApplicationController
   # POST /meals
   def create
     @meal = Meal.new(meal_params)
-    byebug
+    # byebug
     if @meal.save
       # login!
       render json: { meal_created: true, meal: @meal }

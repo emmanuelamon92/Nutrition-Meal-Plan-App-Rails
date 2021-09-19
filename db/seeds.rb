@@ -9,7 +9,7 @@ user = User.create([
 User.all.map{|user|
 
     Profile.create([
-        {name: Faker::Name.name, age: rand(17..150), current_weight: rand(100..250), target_weight: rand(100..250), calories: rand(1500..2600), allergies: 'Gluten', diet: 'Vegan', user_id: user.id}
+        {name: "", age: 0, current_weight: 0, target_weight: 0, calories: 0, allergies: "", diet: "", user_id: user.id}
     ])
 
     # Meal.create([

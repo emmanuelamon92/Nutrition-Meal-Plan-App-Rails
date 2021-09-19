@@ -10,13 +10,13 @@ class ProfilesController < ApplicationController
 
   # GET /users/1/profile
   def show
-    # render json: set_user.profile
-    @profile = Profile.find(params[:id])
-    if @profile
-       render json: { profile: @profile }
-    else
-       render json: { status: 500, errors: ['profile not found'] }
-    end
+    render json: { profile: set_user.profile }
+    # @profile = Profile.find(params[:id])
+    # if @profile
+    #    render json: { profile: @profile }
+    # else
+    #    render json: { status: 500, errors: ['profile not found'] }
+    # end
   end
 
   # POST /profiles
