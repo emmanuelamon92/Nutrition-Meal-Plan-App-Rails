@@ -27,7 +27,7 @@ class UsersController < ApplicationController
       # byebug
       login!
       # render json: @user, status: :created, location: @user
-      render json: {status: :created, user: @user}
+      render json: {status: :created, user: @user, user_data: user_data}
 
     else
       # render json: @user.errors, status: :unprocessable_entity

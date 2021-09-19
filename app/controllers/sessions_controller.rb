@@ -10,7 +10,7 @@ class SessionsController < ApplicationController
         # if user && user.authenticate(params[:password]) || user && user.authenticate(params[:param][:password])
         if @user && @user.authenticate(session_params[:password])
             login!
-            render json: { logged_in: true, user: @user, user_data: {profile: @user.profile, meals: @user.meals} }
+            render json: { logged_in: true, user: @user, user_data: user_data }
         else
             render json: { status: 401, errors: ['Wrong Username or Password'] }
         end

@@ -19,6 +19,10 @@ class ApplicationController < ActionController::Base
       @current_user ||= User.find(session[:user_id]) if session[:user_id]
     end
   
+    def user_data
+      user_data = {profile: @user.profile, meals: @user.meals}
+    end
+
     def authorized_user?
        @user == current_user
     end
