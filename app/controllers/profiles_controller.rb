@@ -27,7 +27,7 @@ class ProfilesController < ApplicationController
       # login!
       render json: { profile_created: true, profile: @profile }
     else
-      render json: { status: 401, errors: ['Profile not created']} @profile.errors, status: :unprocessable_entity
+      render json: { status: 401, errors: ['Profile not created']}
     end
   end
 
