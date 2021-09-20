@@ -31,12 +31,13 @@ class ProfilesController < ApplicationController
     end
   end
 
-  # PATCH/PUT /profiles/1
+  # PATCH/PUT user/1/profile
   def update
+    # login!
     if @profile.update(profile_params)
-      render json: @profile
+      render json: { profile_updated: true, profile: current_user.profile }
     else
-      render json: @profile.errors, status: :unprocessable_entity
+      render json: {status: 401, errors: ['Profile not edited']}
     end
   end
 

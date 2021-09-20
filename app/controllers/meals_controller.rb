@@ -28,8 +28,9 @@ class MealsController < ApplicationController
 
   # PATCH/PUT /meals/1
   def update
+    byebug
     if @meal.update(meal_params)
-      render json: @meal
+      render json: { meal_updated: true, meal: @meal }
     else
       render json: @meal.errors, status: :unprocessable_entity
     end

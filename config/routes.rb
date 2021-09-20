@@ -35,6 +35,9 @@ Rails.application.routes.draw do
   get "/user/:id/profile", to: "profiles#show"
   # get "/myprofile", to: "profiles#show"
 
+  put "/user/:id/profile", to: "profiles#update"
+  # put "/myprofile", to: "profiles#show"
+
   # --- Sessions Routes ---
   post "/login", to: "sessions#create"
   get "/logged_in", to: "sessions#is_logged_in?"
