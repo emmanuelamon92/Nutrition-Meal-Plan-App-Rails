@@ -9,7 +9,7 @@ user = User.create([
 User.all.map{|user|
 
     Profile.create([
-        {name: "", age: 0, current_weight: 0, target_weight: 0, calories: 0, allergies: "", diet: "", user_id: user.id}
+        {name: "", age: 0, current_weight: 0, target_weight: 0, calories: 0, protein: 0, fat: 0, carbohydrates: 0, allergies: "", diet: "", user_id: user.id}
     ])
 
     # Meal.create([
