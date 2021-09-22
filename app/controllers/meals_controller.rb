@@ -38,6 +38,7 @@ class MealsController < ApplicationController
 
   # DELETE /meals/1
   def destroy
+    byebug
     @meal.destroy
   end
 

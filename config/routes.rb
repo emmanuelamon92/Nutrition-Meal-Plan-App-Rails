@@ -30,6 +30,7 @@ Rails.application.routes.draw do
   # get "/me", to: "users#show"
 
   get "/user/:id/meals", to: "meals#show"
+  delete "/user/:id/meals", to: "meals#destroy"
   # get "/mymeals", to: "meals#show"
 
   get "/user/:id/profile", to: "profiles#show"
