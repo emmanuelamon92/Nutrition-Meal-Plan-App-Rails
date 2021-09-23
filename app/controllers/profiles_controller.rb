@@ -11,18 +11,12 @@ class ProfilesController < ApplicationController
   # GET /users/1/profile
   def show
     render json: { profile: set_user.profile }
-    # @profile = Profile.find(params[:id])
-    # if @profile
-    #    render json: { profile: @profile }
-    # else
-    #    render json: { status: 500, errors: ['profile not found'] }
-    # end
   end
 
   # POST /profiles
   def create
     @profile = Profile.new(profile_params)
-
+    byebug
     if @profile.save
       # login!
       render json: { profile_created: true, profile: @profile }
@@ -33,7 +27,6 @@ class ProfilesController < ApplicationController
 
   # PATCH/PUT user/1/profile
   def update
-    # login!
     if @profile.update(profile_params)
       render json: { profile_updated: true, profile: current_user.profile }
     else

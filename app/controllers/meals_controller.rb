@@ -10,16 +10,13 @@ class MealsController < ApplicationController
 
   # GET /mymeals
   def show
-    # byebug
     render json: set_user.meals
   end
 
   # POST /meals
   def create
     @meal = Meal.new(meal_params)
-    # byebug
     if @meal.save
-      # login!
       render json: { meal_created: true, meal: @meal }
     else
       render json: { status: 401, errors: ['Meal not created']}
@@ -38,7 +35,6 @@ class MealsController < ApplicationController
 
   # DELETE /meals/1
   def destroy
-    byebug
     @meal.destroy
   end
 

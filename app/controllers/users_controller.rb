@@ -1,5 +1,6 @@
 class UsersController < ApplicationController
-  before_action :set_user, only: [:show, :update, :destroy]
+  # before_action :set_user, only: [:show, :update, :destroy]
+  skip_before_action :authorize, only: [:create]
   wrap_parameters :user, include: [:username, :password, :password_confirmation]
 
   # GET /users
@@ -22,13 +23,13 @@ class UsersController < ApplicationController
   # POST /users
   def create
     @user = User.new(user_params)
-
     if @user.save
+      Profile.create(name: "", age: 0, current_weight: 0, target_weight: 0, calories: 0, allergies: "", diet: "", user_id: @user.id)
       login!
       render json: {status: :created, user: @user, user_data: user_data}
 
     else
-      render json: {status: 500, errors: ['User Not Created']}
+      render json: @user.errors, status: 500, message: ['User Not Created']
 
     end
   end

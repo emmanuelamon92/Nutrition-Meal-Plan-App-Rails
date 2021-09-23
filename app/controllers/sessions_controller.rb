@@ -25,11 +25,9 @@ class SessionsController < ApplicationController
         end
     end
 
-
     # DELETE /logout
     def destroy
         if session[:user_id]
-            # logout!
             session.destroy
             render json: {status: 200, logged_out: true}
         end
