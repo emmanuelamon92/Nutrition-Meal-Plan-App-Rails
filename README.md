@@ -1,4 +1,4 @@
-# Nutritional Meal Plan App Frontend
+# Nutritional Meal Plan App Backend
 
 App designed to help you search a recipe api by the your target calories for the day, any dietary restrictions, and allergies you may have.
 - Built with JavaScript, React, Ruby on Rails, PostgreSQL, Bootstrap
