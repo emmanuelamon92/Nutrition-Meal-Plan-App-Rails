@@ -1,9 +1,6 @@
 # Nutritional Meal Plan App Backend
 
 App designed to help you search a recipe api by the your target calories for the day, any dietary restrictions, and allergies you may have.
-- Built with JavaScript, React, Ruby on Rails, PostgreSQL, Bootstrap
-- Implemented React Router and Hooks for state and route management.
-- Employs RESTful API
 - Utilizes the MVC framework for the architectural pattern
 - Employs the Object Relational Mapper system (ORM), Active Record for server side data management
 
